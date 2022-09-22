@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-bluegreen
+  name: rollout-weather-app
 spec:
   replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollout-bluegreen
+      app: rollout-weather-app
   template:
     metadata:
       labels:
-        app: rollout-bluegreen
+        app: rollout-weather-app
     spec:
       containers:
       - name: rollouts-demo
@@ -43,7 +43,7 @@ metadata:
     service.beta.kubernetes.io/azure-load-balancer-internal: "false"
 spec:
   selector:
-    app: rollout-bluegreen
+    app: rollout-weather-app
   ports:
     - protocol: "TCP"
       port: 80
@@ -59,7 +59,7 @@ metadata:
     service.beta.kubernetes.io/azure-load-balancer-internal: "false"
 spec:
   selector:
-    app: rollout-bluegreen
+    app: rollout-weather-app
   ports:
     - protocol: "TCP"
       port: 80
